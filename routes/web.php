@@ -16,3 +16,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+// ----------Testing view----------
+// Route::view('/candidate', 'candidate/create');
+
+// ----------Candidates----------
+
+Route::get('/candidates',"CandidateController@index");
+Route::get('/candidates/create',"CandidateController@create");
+Route::post('/candidates',"CandidateController@store");
