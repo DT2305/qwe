@@ -66,7 +66,7 @@
                     {{-- <td>{{$candidates->identify_number}}</td>--}}
                     <td>{{$candidates->email}}</td>
                     <td>{{$candidates->priority}}</td>
-                    <td>{{$candidates->admission_form}}</td>
+                    <td>{{$candidates->admission}}</td>
                     {{-- <td>{{$candidates->highschool_name}}</td>--}}
                     {{-- <td>{{$candidates->province}}</td>--}}
                     {{-- <td>{{$candidates->district}}</td>--}}

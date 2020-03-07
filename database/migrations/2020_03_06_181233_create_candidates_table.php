@@ -18,18 +18,19 @@ class CreateCandidatesTable extends Migration
             $table->string('first_name');
             $table->string('last_name');
             $table->date('birthday');
-            $table->integer('gender');
-            $table->string('phone_number')->unique();
-            $table->string('password')->default("1");
-            $table->string('identify_number')->unique();
-            $table->string('email')->unique()->default("email@email.com");
-            $table->integer('priority');
-            $table->integer('admission_form');
+            $table->string('gender');
+            $table->string('phone_number');
+            $table->string('password');
+            $table->string('identify_number');
+            $table->string('email');
+            $table->string('priority');
+            $table->string('admission');
             $table->string('highschool_name');
             $table->string('province');
             $table->string('district');
             $table->string('ward');
             $table->timestamps();
+        
         });
     }
 

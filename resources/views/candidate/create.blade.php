@@ -4,13 +4,31 @@
 <!-- Main content -->
 <div class="content">
     <div class="container" id="content-submit">
+        <!-- @if(count($errors) > 0)
+                <div class="alert alert-danger alert-dismissible">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                <h5><i class="icon fas fa-ban"></i> Alert!</h5>
+                    <ul>
+                        @foreach($errors->all() as $error)
+                        <li>{{$error}}</li>
+                        @endforeach
+                    </ul>
+                </div>
+                @endif
+                @if(\Session::has('success'))
+                <div class="alert alert-success">
+                    <p>{{ \Session::get('success') }}</p>
+                </div>
+                @endif -->
+
         <form action="/candidates" method="post">
+            <h2><strong>Thông tin cá nhân:</strong></h2>
             <!-- Họ tên -->
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="last_name">Họ và chữ lót:</label>
-                        <input type="text" class="form-control" placeholder="Nhập họ và chữ lót" name="last_name" value="123456">
+                        <input type="text" class="form-control" placeholder="Nhập họ và chữ lót" name="last_name" value="{{old('last_name')}}">
                         @error('last_name')<p style="color: red">{{$message}}</p> @enderror
                     </div>
                     <!-- /.form-group -->
@@ -19,7 +37,7 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="first_name">Tên:</label>
-                        <input type="text" class="form-control" placeholder="Nhập tên" name="first_name" value="123456">
+                        <input type="text" class="form-control" placeholder="Nhập tên" name="first_name" value="{{old('first_name')}}">
                         @error('first_name')<p style="color: red">{{$message}}</p> @enderror
                     </div>
                     <!-- /.form-group -->
@@ -36,10 +54,10 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
                             </div>
-                            <input type="date" class="form-control" data-inputmask-alias="datetime" data-inputmask-inputformat="yyyy/mm/dd" data-mask name="birthday">
-                            @error('birthday')<p style="color: red">{{$message}}</p> @enderror
+                            <input type="date" class="form-control" data-inputmask-alias="datetime" data-inputmask-inputformat="yyyy/mm/dd" data-mask name="birthday" value="{{old('birthday')}}">
                         </div>
                         <!-- /.input group -->
+
                     </div>
                     <!-- /.form-group -->
                 </div>
@@ -47,10 +65,14 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="gender">Giới tính:</label>
-                        <select class="custom-select" name="gender">
-                            <option value="0" selected>Nam</option>
-                            <option value="1">Nữ</option>
-                        </select>
+                        <div class="custom-control custom-radio">
+                            <input class="custom-control-input" type="radio" id="customRadio1" name="gender" value="Nam" checked>
+                            <label for="customRadio1" class="custom-control-label">Nam</label>
+                        </div>
+                        <div class="custom-control custom-radio">
+                            <input class="custom-control-input" type="radio" id="customRadio2" name="gender" value="Nữ">
+                            <label for="customRadio2" class="custom-control-label">Nữ</label>
+                        </div>
                     </div>
                     <!-- /.form-group -->
                 </div>
@@ -61,19 +83,31 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label>Chứng mình nhân dân:</label>
+                        <label>Chứng minh nhân dân:</label>
                         <div class="input-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-user"></i></span>
                             </div>
-                            <input type="text" class="form-control" data-inputmask='"mask": "999999999999"' data-mask name="identify_number" value="123456">
-                            @error('identify_number')<p style="color: red">{{$message}}</p> @enderror
+                            <input type="text" class="form-control" data-inputmask='"mask": "999999999999"' data-mask name="identify_number" value="{{old('identify_number')}}">
+
                         </div>
                         <!-- /.input group -->
+                        @error('identify_number')<p style="color: red">{{$message}}</p> @enderror
                     </div>
                     <!-- /.form-group -->
                 </div>
                 <!-- /.col-md-6 -->
+                <div class="col-md-6">
+
+                </div>
+                <!-- /.col-md-6 -->
+            </div>
+            <!-- /.row -->
+
+            <br>
+            <h2><strong>Thông tin liên hệ & đăng nhập:</strong></h2>
+
+            <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
                         <label>Số điện thoại:</label>
@@ -81,16 +115,73 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-phone"></i></span>
                             </div>
-                            <input type="text" class="form-control" data-inputmask='"mask": "(999) 999-9999"' data-mask name="phone_number" value="123456">
-                            @error('phone_number')<p style="color: red">{{$message}}</p> @enderror
+                            <input type="text" class="form-control" data-inputmask='"mask": "9999999999"' data-mask name="phone_number" autocomplete="off" value="{{old('phone_number')}}">
+
                         </div>
                         <!-- /.input group -->
+                        @error('phone_number')<p style="color: red">{{$message}}</p> @enderror
                     </div>
                     <!-- /.form-group -->
                 </div>
                 <!-- /.col-md-6 -->
             </div>
             <!-- /.row -->
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                            </div>
+                            <input type="email" class="form-control" name="email" id="email" placeholder="Email" value="{{old('email')}}">
+
+                        </div>
+                        @error('email')<p style="color: red">{{$message}}</p> @enderror
+                    </div>
+                    <!-- /.form-group -->
+                </div>
+                <!-- /.col-md-6 -->
+            </div>
+            <!-- /.row -->
+
+            <div class="row">
+                <div class="col-md-6">
+                <div class="form-group">
+                    <label for="password">Mật khẩu:</label>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                            </div>
+                            <input type="password" class="form-control" name="password" id="password" placeholder="Mật khẩu" value="{{old('password')}}">
+
+                        </div>
+                        @error('password')<p style="color: red">{{$message}}</p> @enderror
+                    </div>
+                    <!-- /.form-group -->
+                </div>
+                <!-- /.col-md-6 -->
+                <div class="col-md-6">
+                <div class="form-group">
+                    <label for="password_confirmation">Xác nhận mật khẩu:</label>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                            </div>
+                            <input type="password" class="form-control" name="password_confirmation" id="password_confirmation" placeholder="Nhập lại mật khẩu" value="{{old('password_confirmation')}}">
+
+                        </div>
+                        
+                    </div>
+                    <!-- /.form-group -->
+                </div>
+                <!-- /.col-md-6 -->
+            </div>
+            <!-- /.row -->
+
+            <br>
+            <h2><strong>Thông tin xét tuyển:</strong></h2>
 
             <!-- Đối tượng ưu tiên -->
             <div class="row">
@@ -107,6 +198,7 @@
                             <option value="6">Đối tượng 6</option>
                             <option value="7">Đối tượng 7</option>
                         </select>
+                        @error('priority')<p style="color: red">{{$message}}</p> @enderror
                     </div>
                     <!-- /.form-group -->
                 </div>
@@ -126,14 +218,15 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label for="admission_form">Hình thức xét tuyển:</label>
-                        <select class="custom-select" name="admission_form">
+                        <label for="admission">Hình thức xét tuyển:</label>
+                        <select class="custom-select" name="admission">
                             <option disabled="disabled">Hình thức xét tuyển</option>
-                            <option value="1">Đăng kí xét kết quả học bạ</option>
-                            <option value="2" selected="selected">Xét kết quả thi trung học phổ thông quốc gia</option>
-                            <option value="3">Đăng kí tuyển thẳng</option>
-                            <option value="4">Đăng kí xét điểm thi năng lực của Đại học quốc gia Hồ Chí Minh</option>
+                            <option value="Đăng kí xét kết quả học bạ">Đăng kí xét kết quả học bạ</option>
+                            <option value="Xét kết quả thi trung học phổ thông quốc gia" selected="selected">Xét kết quả thi trung học phổ thông quốc gia</option>
+                            <option value="Đăng kí tuyển thẳng">Đăng kí tuyển thẳng</option>
+                            <option value="Đăng kí xét điểm thi năng lực của Đại học quốc gia Hồ Chí Minh">Đăng kí xét điểm thi năng lực của Đại học quốc gia Hồ Chí Minh</option>
                         </select>
+                        @error('admission')<p style="color: red">{{$message}}</p> @enderror
                     </div>
                 </div>
                 <!-- /.col-md-6 -->
@@ -144,8 +237,8 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="">Tên trường THPT:</label>
-                        <input type="text" class="form-control" placeholder="Nhập tên trường THPT bạn đã học" name="highschool_name" value="123456">
-                        @error('highSchool')<p style="color: red">{{$message}}</p> @enderror
+                        <input type="text" class="form-control" placeholder="Nhập tên trường THPT bạn đã học" name="highschool_name" value="{{old('highschool_name')}}">
+                        @error('highschool_name')<p style="color: red">{{$message}}</p> @enderror
                     </div>
                 </div>
                 <!-- /.col-md-6 -->

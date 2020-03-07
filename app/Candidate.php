@@ -7,4 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Candidate extends Model
 {
     protected $guarded = [];
+    protected $hidden = [
+        'password',
+    ];
 }
