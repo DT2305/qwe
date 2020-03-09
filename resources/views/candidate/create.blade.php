@@ -28,7 +28,7 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="last_name">Họ và chữ lót:</label>
-                        <input type="text" class="form-control" placeholder="Nhập họ và chữ lót" name="last_name" value="{{old('last_name')}}">
+                        <input type="text" class="form-control" placeholder="Nhập họ và chữ lót" name="last_name" autocomplete="off" value="{{old('last_name')}}">
                         @error('last_name')<p style="color: red">{{$message}}</p> @enderror
                     </div>
                     <!-- /.form-group -->
@@ -37,7 +37,7 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="first_name">Tên:</label>
-                        <input type="text" class="form-control" placeholder="Nhập tên" name="first_name" value="{{old('first_name')}}">
+                        <input type="text" class="form-control" placeholder="Nhập tên" name="first_name" autocomplete="off" value="{{old('first_name')}}">
                         @error('first_name')<p style="color: red">{{$message}}</p> @enderror
                     </div>
                     <!-- /.form-group -->
@@ -55,6 +55,7 @@
                                 <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
                             </div>
                             <input type="date" class="form-control" data-inputmask-alias="datetime" data-inputmask-inputformat="yyyy/mm/dd" data-mask name="birthday" value="{{old('birthday')}}">
+                            @error('birthday')<p style="color: red">{{$message}}</p> @enderror
                         </div>
                         <!-- /.input group -->
 
@@ -88,7 +89,7 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-user"></i></span>
                             </div>
-                            <input type="text" class="form-control" data-inputmask='"mask": "999999999999"' data-mask name="identify_number" value="{{old('identify_number')}}">
+                            <input type="text" class="form-control" data-inputmask='"mask": "999999999999"'  data-mask name="identify_number" autocomplete="off" value="{{old('identify_number')}}">
 
                         </div>
                         <!-- /.input group -->
@@ -116,10 +117,19 @@
                                 <span class="input-group-text"><i class="fas fa-phone"></i></span>
                             </div>
                             <input type="text" class="form-control" data-inputmask='"mask": "9999999999"' data-mask name="phone_number" autocomplete="off" value="{{old('phone_number')}}">
-
+                            
                         </div>
                         <!-- /.input group -->
                         @error('phone_number')<p style="color: red">{{$message}}</p> @enderror
+                    </div>
+                    <!-- /.form-group -->
+                </div>
+                <!-- /.col-md-6 -->
+                <div class="col-md-6">
+                <div class="form-group">
+                        <br>
+                        <strong>Chú ý:</strong><p>Sô điện thoại sẽ được dùng làm tên đăng nhập</p>
+                        
                     </div>
                     <!-- /.form-group -->
                 </div>
@@ -135,7 +145,7 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-envelope"></i></span>
                             </div>
-                            <input type="email" class="form-control" name="email" id="email" placeholder="Email" value="{{old('email')}}">
+                            <input type="email" class="form-control" name="email" id="email" placeholder="Email" autocomplete="off" value="{{old('email')}}">
 
                         </div>
                         @error('email')<p style="color: red">{{$message}}</p> @enderror
@@ -237,7 +247,7 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="">Tên trường THPT:</label>
-                        <input type="text" class="form-control" placeholder="Nhập tên trường THPT bạn đã học" name="highschool_name" value="{{old('highschool_name')}}">
+                        <input type="text" class="form-control" placeholder="Nhập tên trường THPT bạn đã học" name="highschool_name" autocomplete="off"  value="{{old('highschool_name')}}">
                         @error('highschool_name')<p style="color: red">{{$message}}</p> @enderror
                     </div>
                 </div>
@@ -286,8 +296,8 @@
             <!-- /.row -->
 
             @csrf
-            <div class="row">
-                <button class="btn btn-primary">Đăng ký</button>
+            <div class="row mt-3 ">
+                <button class="btn-lg btn-primary mx-auto">Đăng ký</button>
             </div>
         </form>
 

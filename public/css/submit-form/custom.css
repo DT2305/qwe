@@ -1,17 +1,20 @@
 body{
-    background: cornflowerblue;
+    background: #000166;
 }
 .content-wrapper{
-    background: cornflowerblue;
+    background: #000166;
 }
 
 #content-submit{
-    background: white;
+    background: #f1f1f1;
     border-radius: 20px;
-    padding-left: 2rem;
-    padding-right: 2rem;
-    padding-top: 2rem;
-    padding-bottom: 2rem;
+    padding-left: 5em;
+    padding-right: 5em;
+    padding-top: 5rem;
+    padding-bottom: 5em;
+
+    margin-bottom: 5em;
+    
 }
 .content-header h1{
     color: white;

@@ -23,7 +23,6 @@
   <!-- /.content-wrapper -->
     @include('candidate.includes.sidebar')
   <!-- Main Footer -->
-    @include('candidate.includes.footer')
 </div>
 <!-- ./wrapper -->
     @include('candidate.includes.foot')
