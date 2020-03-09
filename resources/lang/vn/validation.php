@@ -180,6 +180,7 @@ return [
         'size'                  => 'kích thước',
         'identify_number'       => 'chứng minh nhân dân',
         'phone_number'          => 'số điện thoại',
-        'highschool_name'       => 'tên trường THPT'
+        'highschool_name'       => 'tên trường THPT',
+        'birthday'              => 'ngày sinh',
     ],
 ];

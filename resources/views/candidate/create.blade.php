@@ -27,7 +27,7 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label for="last_name">Họ và chữ lót:</label>
+                        <label class="required" for="last_name">Họ và chữ lót:</label>
                         <input type="text" class="form-control" placeholder="Nhập họ và chữ lót" name="last_name" autocomplete="off" value="{{old('last_name')}}">
                         @error('last_name')<p style="color: red">{{$message}}</p> @enderror
                     </div>
@@ -36,7 +36,7 @@
                 <!-- /.col-md-6 -->
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label for="first_name">Tên:</label>
+                        <label class="required" for="first_name">Tên:</label>
                         <input type="text" class="form-control" placeholder="Nhập tên" name="first_name" autocomplete="off" value="{{old('first_name')}}">
                         @error('first_name')<p style="color: red">{{$message}}</p> @enderror
                     </div>
@@ -49,23 +49,23 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label>Ngày sinh:</label>
+                        <label class="required">Ngày sinh:</label>
                         <div class="input-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
                             </div>
                             <input type="date" class="form-control" data-inputmask-alias="datetime" data-inputmask-inputformat="yyyy/mm/dd" data-mask name="birthday" value="{{old('birthday')}}">
-                            @error('birthday')<p style="color: red">{{$message}}</p> @enderror
+                            
                         </div>
                         <!-- /.input group -->
-
+                        @error('birthday')<p style="color: red">{{$message}}</p> @enderror
                     </div>
                     <!-- /.form-group -->
                 </div>
                 <!-- /.col-md-6 -->
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label for="gender">Giới tính:</label>
+                        <label class="required" for="gender">Giới tính:</label>
                         <div class="custom-control custom-radio">
                             <input class="custom-control-input" type="radio" id="customRadio1" name="gender" value="Nam" checked>
                             <label for="customRadio1" class="custom-control-label">Nam</label>
@@ -84,7 +84,7 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label>Chứng minh nhân dân:</label>
+                        <label class="required">Chứng minh nhân dân:</label>
                         <div class="input-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-user"></i></span>
@@ -111,7 +111,7 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label>Số điện thoại:</label>
+                        <label class="required">Số điện thoại:</label>
                         <div class="input-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-phone"></i></span>
@@ -128,7 +128,7 @@
                 <div class="col-md-6">
                 <div class="form-group">
                         <br>
-                        <strong>Chú ý:</strong><p>Sô điện thoại sẽ được dùng làm tên đăng nhập</p>
+                        <strong>Chú ý:</strong><p>Số điện thoại sẽ được dùng làm tên đăng nhập</p>
                         
                     </div>
                     <!-- /.form-group -->
@@ -140,7 +140,7 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label for="email">Email:</label>
+                        <label class="required" for="email">Email:</label>
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-envelope"></i></span>
@@ -159,7 +159,7 @@
             <div class="row">
                 <div class="col-md-6">
                 <div class="form-group">
-                    <label for="password">Mật khẩu:</label>
+                    <label class="required" for="password">Mật khẩu:</label>
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-lock"></i></span>
@@ -174,7 +174,7 @@
                 <!-- /.col-md-6 -->
                 <div class="col-md-6">
                 <div class="form-group">
-                    <label for="password_confirmation">Xác nhận mật khẩu:</label>
+                    <label class="required" for="password_confirmation">Xác nhận mật khẩu:</label>
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-lock"></i></span>
@@ -197,7 +197,7 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label for="priority">Đối tượng ưu tiên:</label>
+                        <label class="required" for="priority">Đối tượng ưu tiên:</label>
                         <select class="custom-select" name="priority">
                             <option value="0" selected="selected">Không có</option>
                             <option value="1">Đối tượng 1</option>
@@ -228,7 +228,7 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label for="admission">Hình thức xét tuyển:</label>
+                        <label class="required" for="admission">Hình thức xét tuyển:</label>
                         <select class="custom-select" name="admission">
                             <option disabled="disabled">Hình thức xét tuyển</option>
                             <option value="Đăng kí xét kết quả học bạ">Đăng kí xét kết quả học bạ</option>
@@ -246,7 +246,7 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label for="">Tên trường THPT:</label>
+                        <label class="required" for="">Tên trường THPT:</label>
                         <input type="text" class="form-control" placeholder="Nhập tên trường THPT bạn đã học" name="highschool_name" autocomplete="off"  value="{{old('highschool_name')}}">
                         @error('highschool_name')<p style="color: red">{{$message}}</p> @enderror
                     </div>
@@ -259,11 +259,12 @@
                 <div class="col-md-4">
                     <!-- Tỉnh/Thành phố -->
                     <div class="form-group">
-                        <label>Tỉnh/Thành phố:</label>
+                        <label class="required">Tỉnh/Thành phố:</label>
                         <select class="form-control select2bs4" style="width: 100%;" name="province" id="province">
                             <option>-- Chọn Tỉnh/Thành phố</option>
                             <option selected="selected">TP Cần Thơ</option>
                         </select>
+                        @error('province')<p style="color: red">{{$message}}</p> @enderror
                     </div>
                     <!-- /.form-group -->
                 </div>
@@ -271,11 +272,12 @@
                 <div class="col-md-4">
                     <!-- Quận/Huyện -->
                     <div class="form-group">
-                        <label>Quận/Huyện:</label>
+                        <label class="required">Quận/Huyện:</label>
                         <select class="form-control select2bs4" style="width: 100%;" name="district" id="district">
                             <option>-- Chọn Quận/Huyện</option>
                             <option selected="selected">Quận Ninh Kiều</option>
                         </select>
+                        @error('district')<p style="color: red">{{$message}}</p> @enderror
                     </div>
                     <!-- /.form-group -->
                 </div>
@@ -283,11 +285,12 @@
                 <div class="col-md-4">
                     <!-- Tỉnh/Thành phố -->
                     <div class="form-group">
-                        <label>Xã/Phường:</label>
+                        <label class="required">Xã/Phường:</label>
                         <select class="form-control select2bs4" style="width: 100%;" name="ward" id="ward">
                             <option>-- Chọn Xã/Phường</option>
                             <option selected="selected">Phường An Lạc</option>
                         </select>
+                        @error('ward')<p style="color: red">{{$message}}</p> @enderror
                     </div>
                     <!-- /.form-group -->
                 </div>
@@ -297,7 +300,7 @@
 
             @csrf
             <div class="row mt-3 ">
-                <button class="btn-lg btn-primary mx-auto">Đăng ký</button>
+                <button class="btn-lg btn-primary mx-auto"><strong>Đăng ký</strong></button>
             </div>
         </form>
 

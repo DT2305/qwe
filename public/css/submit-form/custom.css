@@ -24,3 +24,9 @@ body{
 .main-footer{
     margin-top: 3rem;
 }
+
+form label.required:after
+{
+    color: red;
+    content: " *";
+}
